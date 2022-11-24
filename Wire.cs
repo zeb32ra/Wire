@@ -45,14 +45,18 @@ namespace Wire
                 List<string> content = new List<string>();
                 int string_count = 2;
                 int available_pos = 0;
+                int a;
+                int b;
                 foreach (string folder in folders)
                 {
-                    content.Add(folder);
+                    a = folder.LastIndexOf("\\");
+                    b = folder.Replace(" ", "").Length;
+                    content.Add(folder.Substring(folder.LastIndexOf('\\') + 1));
                     available_pos++;
                 }
                 foreach (string file in files)
                 {
-                    content.Add(file);
+                    content.Add(file.Substring(file.LastIndexOf('\\') + 1));
                     available_pos++;
                 }
                 int i = 2;
@@ -108,6 +112,25 @@ namespace Wire
                     paths.Add(file);
                 }
                 return paths;
+            }
+        }
+        public static void Create_Directory(string path, string name)
+        {
+            Directory.CreateDirectory(path + "\\" + name);
+        }
+        public static void Create_a_File(string path, string name)
+        {
+            File.Create(path + "\\" + name);  
+        }
+        public static void Delete(string path)
+        {
+            if (Directory.Exists(path))
+            {
+                Directory.Delete(path, true);
+            }
+            else if (File.Exists(path))
+            {
+                File.Delete(path);
             }
         }
 
