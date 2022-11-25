@@ -1,13 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 using System.Diagnostics;
-using Wire;
-using System.IO;
-using System.Security.Cryptography.X509Certificates;
-using System.Reflection.Metadata;
 
 namespace Wire
 {
@@ -45,12 +37,9 @@ namespace Wire
                 List<string> content = new List<string>();
                 int string_count = 2;
                 int available_pos = 0;
-                int a;
-                int b;
+                
                 foreach (string folder in folders)
                 {
-                    a = folder.LastIndexOf("\\");
-                    b = folder.Replace(" ", "").Length;
                     content.Add(folder.Substring(folder.LastIndexOf('\\') + 1));
                     available_pos++;
                 }
@@ -132,6 +121,10 @@ namespace Wire
             {
                 File.Delete(path);
             }
+        }
+        public static void Start_a_File(string path)
+        {
+            Process.Start(new ProcessStartInfo { FileName = path, UseShellExecute = true });
         }
 
     }
