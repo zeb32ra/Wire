@@ -5,7 +5,7 @@ namespace Wire
     {
         int min;
         int max;
-        int position;
+
         public Arrows(int Pmin, int Pmax)
         {
             min = Pmin;

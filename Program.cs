@@ -1,3 +1,3 @@
 ﻿using Wire;
-
-Wire.Main.programm();
+Wire.Main main = new Main();
+main.programm();

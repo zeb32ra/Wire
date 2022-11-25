@@ -7,7 +7,7 @@ namespace Wire
         static List<string> disks = new List<string>();
         public static string elem_name;
 
-        public static void programm()
+        public void programm()
         {
             int[] positions_in_window;
             int position = 2;
